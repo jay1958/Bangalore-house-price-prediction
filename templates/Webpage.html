@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Bangalore House Price Predictor</title>
+
+  <style>
+  
+      body {
+      background-image: url('static/img/bgimg.jpg');
+      background-repeat: no-repeat;
+      background-attachment: fixed;
+      background-size: cover;
+    }
+
+    h1   {color: black;}  
+    p   {color: blue;} 
+    .i1{
+      float:left;
+      margin:10px 0px 0px 0px;
+    }
+    .i2{
+      display:inline-block;
+    } 
+
+    .button_css {
+    color: #494949 !important;
+    text-transform: uppercase;
+    text-decoration: none;
+    background: #ffffff;
+    padding: 10px;
+    border: 2px solid #494949 !important;
+    display: inline-block;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .button_css:hover {
+    color: #ffffff !important;
+    background: #f6b93b;
+    border-color: #f6b93b !important;
+    transition: all 0.4s ease 0s;
+    }
+    
+    .footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color:#F9F923  ;
+  color: white;
+  text-align: center;
+  
+  a:link { color: White; } 
+  a:visited { color: green; }
+}   
+  </style>
+
+</head>
+
+<body>
+
+  <div>
+    <img src="static/img/logoo.jpg" class="i1" style="width:10%">
+
+    <img src="static/img/title1.jpg" class="i2" alt="Indian AI Production" style="width:90%">
+  </div>
+
+ 
+ 
+ <div class="login">
+  
+    <center>
+    <form action="{{ url_for('predict')}}"method="post">
+        <h1>Enter the Information of House to Predict the Price</h1>
+        
+      <input align="center" type="number" name="bathrooms" placeholder="Bathrooms" required="required" width="50" height="10" step=".01"/><br>
+      <input align="center" type="number" name="balcony" placeholder="Balcony" required="required" width="50" height="10" step=".01"/><br>
+      <input align="center" type="number" name="total_sqft_int" placeholder="Total Squre Foot" required="required" width="50" height="10" step=".01"/><br>
+      <input align="center" type="number" name="bhk" placeholder="BHK" required="required" width="50" height="10" step=".01"/><br>
+      <input align="center" type="number" name="price_per_sqft" placeholder="Price Per Squre Foot" required="required" width="50" height="10" step=".01"/><br><br>
+      <input type="text" name="area_type" placeholder="Area Type" required="required" /><br><br>
+      <input type="text" name="availability" placeholder="House Availability" required="required" /><br><br>
+      <input type="text" name="location" placeholder="House Location" required="required" /> <br><br>
+
+        <!-- Show button -->
+        <div class="button_cont" align="center"><a class="button_css">
+            <button type="submit" class="btn btn-primary"><strong>Predict House Price</strong></button></a>
+        </div>
+        
+    </form>
+    </center>
+   
+   <!-- Show output using ML model --> 
+   <div>
+       <center>
+   <h2>{{ prediction_text }}</h2>
+       </center>
+   </div>
+
+ </div>
+
+
+<div class="footer">
+    <p><br>
+    
+      <a href="https://baglorehousepricepreadiction.blogspot.com/2020/10/how-to-know-cost-of-your-house-in-your.html"> Website</a>
+    </p>
+</div>
+</body>
+</html>
